@@ -444,7 +444,7 @@ class VIEWS_EXPORT Widget : public internal::NativeWidgetDelegate,
     std::optional<bool> use_accelerated_widget_override;
 #endif
 
-#if BUILDFLAG(IS_CHROMEOS_LACROS)
+#if 1 || BUILDFLAG(IS_CHROMEOS_LACROS)
     // TODO(crbug.com/1327490): Rename restore info variables.
     // Only used by Wayland. Specifies the session id window key, the restore
     // window id, and the app id, respectively, respectively, used by the

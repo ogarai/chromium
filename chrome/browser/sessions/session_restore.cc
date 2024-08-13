@@ -1018,7 +1018,7 @@ class SessionRestoreImpl : public BrowserListObserver {
           /*user_gesture=*/false);
     }
 
-#if BUILDFLAG(IS_CHROMEOS)
+#if true || BUILDFLAG(IS_CHROMEOS)
     params.restore_id = restore_id;
 #endif
 

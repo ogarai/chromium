@@ -337,7 +337,7 @@ Browser* WebAppLaunchProcess::CreateBrowserForLaunch() {
       /*trusted_source=*/true, /*window_bounds=*/gfx::Rect(),
       /*profile=*/&profile_.get(),
       /*user_gesture*/ true);
-#if BUILDFLAG(IS_CHROMEOS)
+#if true || BUILDFLAG(IS_CHROMEOS)
   browser_params.restore_id = params_->restore_id;
 #endif
   return CreateWebAppWindowMaybeWithHomeTab(params_->app_id, browser_params);

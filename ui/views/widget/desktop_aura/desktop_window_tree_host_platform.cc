@@ -171,7 +171,7 @@ ui::PlatformWindowInitProperties ConvertWidgetInitParamsToInitProperties(
   properties.inhibit_keyboard_shortcuts = params.inhibit_keyboard_shortcuts;
 #endif
 
-#if BUILDFLAG(IS_CHROMEOS)
+#if 1 || BUILDFLAG(IS_CHROMEOS)
   // Set restore members for windows to know ids upon creation. See the
   // corresponding comment in Widget::InitParams.
   properties.restore_session_id = params.restore_session_id;

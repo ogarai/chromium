@@ -329,10 +329,10 @@ class Browser : public TabStripModelObserver,
 
     CreationSource creation_source = CreationSource::kUnknown;
 
-#if BUILDFLAG(IS_CHROMEOS)
     // The id from the restore data to restore the browser window.
     int32_t restore_id = kDefaultRestoreId;
 
+#if BUILDFLAG(IS_CHROMEOS)
     // If set, the browser should be created on the display given by
     // `display_id`.
     std::optional<int64_t> display_id;

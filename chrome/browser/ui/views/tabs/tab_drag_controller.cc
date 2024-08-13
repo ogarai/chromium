@@ -2422,12 +2422,12 @@ Browser* TabDragController::CreateBrowserForDrag(
   }
   create_params.user_gesture = true;
   create_params.in_tab_dragging = true;
-#if BUILDFLAG(IS_CHROMEOS)
   // Do not copy attached window's restore id as this will cause Full Restore to
   // restore the newly created browser using the original browser's stored data.
   // See crbug.com/1208923 and crbug.com/1333562 for details.
   create_params.restore_id = Browser::kDefaultRestoreId;
 
+#if BUILDFLAG(IS_CHROMEOS)
   // Open the window in the same display.
   display::Display display =
       display::Screen::GetScreen()->GetDisplayNearestWindow(

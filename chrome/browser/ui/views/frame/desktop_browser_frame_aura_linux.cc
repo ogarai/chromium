@@ -40,6 +40,8 @@ views::Widget::InitParams DesktopBrowserFrameAuraLinux::GetWidgetParams() {
   // task switchers in X11 environments to distinguish between main browser
   // windows and e.g app windows.
   const Browser& browser = *browser_view()->browser();
+  params.restore_session_id = browser.session_id().id();
+  params.restore_window_id = browser.create_params().restore_id;
   params.wm_class_name =
       (browser.is_type_app() || browser.is_type_app_popup())
           ? shell_integration_linux::GetWMClassFromAppName(browser.app_name())
