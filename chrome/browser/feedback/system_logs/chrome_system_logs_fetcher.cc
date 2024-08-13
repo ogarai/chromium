@@ -15,6 +15,7 @@
 #include "chrome/common/extensions/extension_constants.h"
 #include "components/feedback/system_logs/system_logs_fetcher.h"
 #include "components/supervised_user/core/common/buildflags.h"
+#include "ui/base/ozone_buildflags.h"
 
 #if BUILDFLAG(IS_CHROMEOS_ASH)
 #include "base/files/file_path.h"
@@ -50,6 +51,10 @@
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/browser/signin/identity_manager_factory.h"
 #include "services/network/public/cpp/shared_url_loader_factory.h"
+#endif
+
+#if BUILDFLAG(IS_OZONE_WAYLAND)
+#include "chrome/browser/feedback/system_logs/log_sources/ozone_wayland_state_dump_source.h"
 #endif
 
 namespace system_logs {
@@ -129,6 +134,10 @@ SystemLogsFetcher* BuildChromeSystemLogsFetcher(Profile* profile,
         log_base_path, kLacrosUserLogKey));
   }
 #endif  // BUILDFLAG(IS_CHROMEOS_ASH)
+
+#if BUILDFLAG(IS_OZONE_WAYLAND)
+  fetcher->AddSource(std::make_unique<OzoneWaylandStateDumpSource>());
+#endif
 
   return fetcher;
 }

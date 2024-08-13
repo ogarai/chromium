@@ -16,6 +16,7 @@
 #include "chrome/browser/profiles/profile.h"
 #include "components/feedback/system_logs/system_logs_fetcher.h"
 #include "net/net_buildflags.h"
+#include "ui/base/ozone_buildflags.h"
 
 #if BUILDFLAG(CHROME_ROOT_STORE_SUPPORTED)
 #include "chrome/browser/feedback/system_logs/log_sources/chrome_root_store_log_source.h"
@@ -36,6 +37,10 @@
 #include "chrome/browser/ash/system_logs/touch_log_source.h"
 #include "chrome/browser/ash/system_logs/traffic_counters_log_source.h"
 #include "chrome/browser/ash/system_logs/ui_hierarchy_log_source.h"
+#endif
+
+#if BUILDFLAG(IS_OZONE_WAYLAND)
+#include "chrome/browser/feedback/system_logs/log_sources/ozone_wayland_state_dump_source.h"
 #endif
 
 namespace system_logs {
@@ -79,6 +84,10 @@ SystemLogsFetcher* BuildAboutSystemLogsFetcher(content::WebUI* web_ui) {
   fetcher->AddSource(std::make_unique<ShillLogSource>(scrub_data));
   fetcher->AddSource(std::make_unique<UiHierarchyLogSource>(scrub_data));
   fetcher->AddSource(std::make_unique<KeyboardInfoLogSource>());
+#endif
+
+#if BUILDFLAG(IS_OZONE_WAYLAND)
+  fetcher->AddSource(std::make_unique<OzoneWaylandStateDumpSource>());
 #endif
 
   return fetcher;
