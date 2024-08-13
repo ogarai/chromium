@@ -758,6 +758,8 @@ bool WaylandToplevelWindow::OnInitialize(
   }
   restore_session_id_ = properties.restore_session_id;
   restore_window_id_ = properties.restore_window_id;
+  LOG(ERROR) << __func__ << " restore_session_id=" << restore_session_id_
+             << " restore_window_id=" << restore_window_id_.value();
   restore_window_id_source_ = properties.restore_window_id_source;
   persistable_ = properties.persistable;
 #if BUILDFLAG(IS_CHROMEOS_LACROS)
