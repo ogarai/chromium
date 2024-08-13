@@ -43,6 +43,7 @@
 #include <xdg-foreign-unstable-v1-client-protocol.h>
 #include <xdg-foreign-unstable-v2-client-protocol.h>
 #include <xdg-output-unstable-v1-client-protocol.h>
+#include <xdg-session-management-v1-client-protocol.h>
 #include <xdg-shell-client-protocol.h>
 #include <xdg-toplevel-icon-v1-client-protocol.h>
 
@@ -256,6 +257,8 @@ IMPLEMENT_WAYLAND_OBJECT_TRAITS(xdg_activation_token_v1)
 IMPLEMENT_WAYLAND_OBJECT_TRAITS(xdg_popup)
 IMPLEMENT_WAYLAND_OBJECT_TRAITS(xdg_positioner)
 IMPLEMENT_WAYLAND_OBJECT_TRAITS(xdg_surface)
+IMPLEMENT_WAYLAND_OBJECT_TRAITS(xdg_session_manager_v1)
+IMPLEMENT_WAYLAND_OBJECT_TRAITS(xdg_session_v1)
 IMPLEMENT_WAYLAND_OBJECT_TRAITS(xdg_toplevel)
 IMPLEMENT_WAYLAND_OBJECT_TRAITS(xdg_toplevel_icon_manager_v1)
 IMPLEMENT_WAYLAND_OBJECT_TRAITS(xdg_toplevel_icon_v1)

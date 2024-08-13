@@ -173,6 +173,10 @@ class WaylandConnection {
     return toplevel_icon_manager_v1_.get();
   }
 
+  xdg_session_manager_v1* session_manager_v1() const {
+    return xdg_session_manager_v1_.get();
+  }
+
   void SetPlatformCursor(wl_cursor* cursor_data, int buffer_scale);
 
   void SetCursorBufferListener(WaylandCursorBufferListener* listener);
@@ -495,6 +499,7 @@ class WaylandConnection {
   wl::Object<zxdg_output_manager_v1> xdg_output_manager_;
   wl::Object<wp_fractional_scale_manager_v1> fractional_scale_manager_v1_;
   wl::Object<xdg_toplevel_icon_manager_v1> toplevel_icon_manager_v1_;
+  wl::Object<xdg_session_manager_v1> xdg_session_manager_v1_;
 
   // Manages Wayland windows.
   WaylandWindowManager window_manager_{this};
